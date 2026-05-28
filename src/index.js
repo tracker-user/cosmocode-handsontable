@@ -1,8 +1,4 @@
-import 'babel-polyfill';
-
-import './css/bootstrap.css';
 import './css/handsontable.css';
-import './css/mobile.handsontable.css';
 
 import {getRegisteredEditorNames, registerEditor, getEditor} from './editors';
 import {getRegisteredRendererNames, getRenderer, registerRenderer} from './renderers';

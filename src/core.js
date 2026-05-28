@@ -1,4 +1,3 @@
-import numbro from 'numbro';
 import {addClass, empty, isChildOfWebComponentTable, removeClass} from './helpers/dom/element';
 import {columnFactory} from './helpers/setting';
 import {isFunction} from './helpers/function';
@@ -1010,33 +1009,6 @@ export default function Core(rootElement, userSettings, rootInstanceSymbol = fal
         var col = datamap.propToCol(changes[i][1]);
 
         var cellProperties = instance.getCellMeta(row, col);
-
-        if (cellProperties.type === 'numeric' && typeof changes[i][3] === 'string') {
-          if (changes[i][3].length > 0 && (/^-?[\d\s]*(\.|,)?\d*$/.test(changes[i][3]) || cellProperties.format)) {
-            var len = changes[i][3].length;
-
-            if (isUndefined(cellProperties.language)) {
-              numbro.culture('en-US');
-
-            } else if (changes[i][3].indexOf('.') === len - 3 && changes[i][3].indexOf(',') === -1) {
-              // this input in format XXXX.XX is likely to come from paste. Let's parse it using international rules
-              numbro.culture('en-US');
-            } else {
-
-              numbro.culture(cellProperties.language);
-            }
-
-            const {delimiters} = numbro.cultureData(numbro.culture());
-
-            // try to parse to float - https://github.com/foretagsplatsen/numbro/pull/183
-            if (numbro.validate(changes[i][3]) && !isNaN(changes[i][3])) {
-              changes[i][3] = parseFloat(changes[i][3]);
-
-            } else {
-              changes[i][3] = numbro().unformat(changes[i][3]) || changes[i][3];
-            }
-          }
-        }
 
         /* eslint-disable no-loop-func */
         if (instance.getCellValidator(cellProperties)) {
