@@ -15,10 +15,6 @@ import {
   COLUMN_RIGHT,
   REMOVE_ROW,
   REMOVE_COLUMN,
-  UNDO,
-  REDO,
-  READ_ONLY,
-  ALIGNMENT,
   SEPARATOR
 } from './predefinedItems';
 
@@ -69,12 +65,6 @@ class ContextMenu extends BasePlugin {
       COLUMN_LEFT, COLUMN_RIGHT,
       SEPARATOR,
       REMOVE_ROW, REMOVE_COLUMN,
-      SEPARATOR,
-      UNDO, REDO,
-      SEPARATOR,
-      READ_ONLY,
-      SEPARATOR,
-      ALIGNMENT,
     ];
   }
 

@@ -1,8 +1,9 @@
 {
+  "comments": false,
   "presets": [
     ["env", {
       "targets": {
-        "browsers": ["last 3 versions", "Chrome >= 41", "Firefox >= 34", "Explorer >= 9", "Safari >= 9"]
+        "browsers": ["Firefox >= 52", "Chrome >= 55", "Safari >= 10"]
       },
       "exclude": [
         "transform-regenerator",
